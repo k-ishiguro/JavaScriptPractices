@@ -5,8 +5,34 @@
 	<title>JQuery practice</title>
 </head>
 <body>
-	<p>JQuery‚Ì‚¨‚Î‚¯</p>
+	<p>JQuery starter</p>
+	<ul>
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3
+			<ul id="sub">
+				<li>3-1</li>
+				<li>3-2</li>
+				<li class="item">3-2</li>
+				<li class="item">3-3</li>
+				<li>3-4</li>
+			</ul>
+		</li>
+	</ul>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script>
+		// selector: specity the DOM element to be processed
+		// method: process
+		// method chane; succesive method computations
+		$(function() {
+			$("p").css("color", "red").hide("slow");
+		});
+		$(function() {
+			$("#sub").css("color", "blue"); // use # for id
+			$(".item").css("color", "red"); // use . for class?
+		});
+	</script>
 </body>
 </html>
 
