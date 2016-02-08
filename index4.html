@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>JQuery practice</title>
+	<style>
+		.myStyle {
+			border:5px solid green;
+			font-size: 48px;
+		}
+	</style>
+</head>
+<body>
+	<p>JQuery starter</p>
+	<div id="box" style="width:100px;height:100px;background:red;"></div>
+	
+	<input type="text" id="name">
+	<select id="members" name="members">
+		<option>taguchi</option>
+		<option>fkoji</option>
+		<option>dotinstall</option>
+	</select>
+
+	<button>Add!</button>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script>
+		// EVENT
+		/*
+		$(function() {
+
+			// hide, show
+			//$('#box').hide("slow");
+			$('#box').hide(1000);
+			$('#box').show(1000);
+
+			// fadeOut, fadeIn
+			$('#box').fadeOut("slow");
+			$('#box').fadeIn("fast");
+
+			// toggle
+			$('#box').toggle(500);
+			$('#box').toggle(500);
+			$('#box').toggle(500);
+			$('#box').toggle(500);
+
+			$('#box').fadeOut(800, function() {
+			alert("gone!");
+			});
+			
+		});
+		*/
+
+		// focus, change, blur
+		/*
+		$(function() {
+			$('#name')
+				.focus(function() {
+					$(this).css('background', 'red');
+				})
+				.blur(function() {
+					$(this).css('background', 'white');
+				});
+			$('#members').change(function() {
+				alert('changed');
+			});
+		});
+		*/
+
+		//on method
+		$(function() {
+			$('button').click(function() {
+				var p = $('<p>').text('vanish!').addClass('vanish');
+				$(this).before(p);
+			});
+
+			//$('.vanish').click(function() {
+			//	$(this).remove();
+			//});
+
+			$('body').on('click', '.vanish', function() {
+				$(this).remove();
+			});
+		});
+	</script>
+</body>
+</html>
+
+	

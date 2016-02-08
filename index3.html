@@ -3,6 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>JQuery practice</title>
+	<style>
+		.myStyle {
+			border:5px solid green;
+			font-size: 48px;
+		}
+	</style>
 </head>
 <body>
 	<p>JQuery starter</p>
@@ -20,42 +26,62 @@
 			</ul>
 		</li>
 	</ul>
+
+	<a href="http://google.com" data-sitename="google">Google</a>
+	<input type="text" value="hello">
+	<p><a href="http://yahoo.co.jp">Yahoo</a>!</p>
+	<p><a href="http://dotinstall.com">DotInstall</a></p>
+
+
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script>
-		// selector: specity the DOM element to be processed
-		// method: process
-		// method chane; succesive method computations
-		// selectors
-		// # for id, . for class
-		// > child element
-		// grandchild, and lower
-		// ,  multiple elements
-		// + neighbor element
 		$(function() {
-			$("p").css("color", "red").hide("slow");
+			// attribute selector
+			// = 
+			// !=
+			// *= partial match?
+			// ^= head match?
+			// $= last match
+			//$('a[href="http://google.com"]').css("background", "red");
+			//$('a[href!="http://google.com"]').css("background", "red");
+			//$('a[href*="dotinstall"]').css("background", "red");
+			//$('a[href$="jp"]').css("background", "red");
 		});
-		$(function() {
-			//$("#sub").css("color", "blue"); // use # for id
-			$("#main > .item").css("color", "red"); // use . for class?
-			$(".item + .item").css("color", "green");
 
-			// filters
-			// :eq(), :gt() ;lt()
-			// :even, :odd
-			// :contains()
-			// :first. :last
+		$(function() {
+			// selector method
+			// css
+			//$('p').css('color', 'red').css('background', 'blue');
+			//console.log($('p').css('color'));
+
+			// addClass removeClass
+			//$('p').addClass('myStyle');
+		});
+
+		$(function() {
+			// attributes
+			//console.log( $('a').attr('href') );
+			//$('a').attr('href', 'http://google.co.jp');
+		
+			//data
+			//console.log( $('a').data('sitename') );
 			
-			//$("#sub > li:eq(2)").css("color", "blue");
-			//$("#sub > li:odd").css("color", "blue");
-			//$("#sub > li:contains('4')").css("color", "red");
+			// operate tags
+			//$('p').text('just changed');
+			//$('p').html('<a href="">click me!</a>');
+			//console.log( $('input').val() );
+			//$('input').val("hello again");
+			
+			//$('p').empty();
+			//$('p').remove();
 		});
+	
 		$(function() {
-			// filtering DOM elements
-			// parent() children, next(), prev(), siblings()
-			//$("#sub").children().css('color', 'red');
-			//$("#sub > li:eq(2)").prev().css('color', 'red');
-			$("#sub > li:eq(2)").siblings().css('color', 'red');
-
+			var li = $('<li>').text('just added');
+			//$('ul > li:eq(1)').before(li);
+			//li.insertBefore($('ul > li:eq(1)'));
+			//$('ul').prepend(li);
+			li.appendTo($('ul'));
 		});
 
 	</script>
