@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>JQuery practice</title>
+	<style>
+		.myStyle {
+			border:5px solid green;
+			font-size: 48px;
+		}
+	</style>
+</head>
+<body>
+	<p>JQuery starter</p>
+	
+	<button>read more</button>
+	<div id="result"></div>
+
+	<p>
+		<input type="text" name="name" id="name>
+		<input type="button" name="greet" value="Greet!">
+	</p>
+	<div id="result2"></div>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script>
+		// Ajax
+		// Server Communication + Page rewrite (partially!) by JS
+		
+		$('button').click(function() {
+			//$('#result').load('more.html'); // load more.html and insert it at "result", w/o re-loading the whole html. 
+			//$('message').css('color', 'red'); // this does not necesarily processed after Ajax.load(). 
+			$('#result').load('more.html', function() {
+				$('message').css('color', 'red'); // this alwasy works after Ajax.load(). 
+			}); 
+		
+		});
+
+		// get, post
+		$('#greet').click(function() {
+			$.get('greet.php', {
+				name: $('#name').val()
+				}, function(data) {
+					$('#result2').html(data);
+				});
+			}); 
+		});
+		
+	</script>
+</body>
+</html>
+
+	
